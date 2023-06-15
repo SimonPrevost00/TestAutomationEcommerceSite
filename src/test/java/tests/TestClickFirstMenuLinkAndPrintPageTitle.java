@@ -23,7 +23,7 @@ Steps to Automate:
 8. Get the page title and print it. Verify that value matches with output of point no. 4
 9. Close the browser.*/
 
-public class ClickFirstMenuLinkAndPrintPageTitle {
+public class TestClickFirstMenuLinkAndPrintPageTitle {
 	WebDriver driver;
 
 	/*
@@ -32,7 +32,7 @@ public class ClickFirstMenuLinkAndPrintPageTitle {
 	//Starting Browser
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	//the actual test
@@ -41,15 +41,15 @@ public class ClickFirstMenuLinkAndPrintPageTitle {
 
 		MainPage MainP = PageFactory.initElements(driver, MainPage.class);
 		// 4. Get the page title and print it.
-		String MainPageTitle = MainP.GetPageTitle();
+		String MainPageTitle = MainP.getPageTitle();
 		System.out.println(MainPageTitle);
 
 		// 5. Now, click on first menu link say "Contact us"
-		MainP.Click_ContactUS_Button();
+		MainP.clickContactUSButton();
 
 		// 6. Get the page title and print it.
 		ContactUsPage contactus = PageFactory.initElements(driver, ContactUsPage.class);
-		String ContactUsPageTitle = contactus.GetPageTitle();
+		String ContactUsPageTitle = contactus.getPageTitle();
 		System.out.println(ContactUsPageTitle);
 		// 7. Navigate back to Home Page.
 		driver.navigate().back();
@@ -68,7 +68,7 @@ public class ClickFirstMenuLinkAndPrintPageTitle {
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 
 }
