@@ -44,8 +44,6 @@ public class TestWishListWorksAfterLogin {
 		ts.clickwishlistProduct();
 		//6. Verify that error message is displayed
 		ts.verifywishlistErrorBox();
-
-		Thread.sleep(3000);
 	}
 
 	@AfterMethod

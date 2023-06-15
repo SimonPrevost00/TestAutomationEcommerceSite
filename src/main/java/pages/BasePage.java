@@ -9,17 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
 	public int randomNumberGenerator() {
-		return (int) (Math.random() * 999 + 100);
+		return 123;
 	}
 
 	public int dateNumberGenerator() {
-		return (int) (Math.random() * 31 + 1);
+		return 963;
 	}
 
 	public String phoneNumberGenerator() {
-		int areaCode = (int) (Math.random() * 999 + 100);
-		int firstThree = (int) (Math.random() * 999 + 100);
-		int lastfour = (int) (Math.random() * 9999 + 1000);
+		int areaCode = 47;
+		int firstThree = 23;
+		int lastfour = 15;
 		return areaCode + " " + firstThree + " " + lastfour;
 	}
 

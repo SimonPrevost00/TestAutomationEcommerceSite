@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TshirtsPage {
 	
@@ -13,6 +15,8 @@ public class TshirtsPage {
 	public TshirtsPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	private static Logger logger = LoggerFactory.getLogger(TshirtsPage.class);
 	
 	//Element Library
 	@FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[2]/span")WebElement moreButtonProductOne;
@@ -36,9 +40,9 @@ public class TshirtsPage {
 	
 	public void verifywishlistErrorBox() {
 		if(wishlistErrorBox.getText().contains("You must be logged in to manage your wishlist.")) {
-			System.out.println("Success! Error message displayed");
+			logger.info("Success! Error message displayed");
 		}else {
-			System.out.println("Failure, Error message didn't display");
+			logger.info("Failure, Error message didn't display");
 		}
 	}
 

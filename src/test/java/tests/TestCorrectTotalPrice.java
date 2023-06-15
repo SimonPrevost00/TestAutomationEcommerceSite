@@ -82,8 +82,6 @@ public class TestCorrectTotalPrice {
 		// 12. Change the quantity to 2.
 		// 13. Verify that Total price is changing and reflecting correct price.
 		ProdP.testTotalCalculation();
-
-		Thread.sleep(5000);
 	}
 
 	// Closing browser

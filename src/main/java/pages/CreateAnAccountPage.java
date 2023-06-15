@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CreateAnAccountPage extends BasePage {
 
@@ -12,6 +14,8 @@ public class CreateAnAccountPage extends BasePage {
 	public CreateAnAccountPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	private static Logger logger = LoggerFactory.getLogger(CreateAnAccountPage.class);
 	
 	@FindBy(how = How.XPATH, using = "//input[@id='id_gender1']") WebElement mrRadioButton;
 	@FindBy(how = How.XPATH, using = "//input[@id='customer_firstname']") WebElement firstNameField;
@@ -120,9 +124,9 @@ public class CreateAnAccountPage extends BasePage {
 	public void verifyErrorAlertForMandatoryFields() {
 		
 		if(errorAlertForMandatoryFields.isDisplayed()) {
-			System.out.println("Success! Error Alert For Mandatory Fields is displayed");
+			logger.info("Success! Error Alert For Mandatory Fields is displayed");
 		}else {
-			System.out.println("Failure, Error Alert For Mandatory Fields is not displayed");
+			logger.info("Failure, Error Alert For Mandatory Fields is not displayed");
 		}
 	}
 }

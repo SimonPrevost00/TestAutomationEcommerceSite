@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProductPage extends BasePage {
 
@@ -13,7 +15,9 @@ public class ProductPage extends BasePage {
 	public ProductPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
+	
+	private static Logger logger = LoggerFactory.getLogger(ProductPage.class);
+	
 	// Element Library
 	@FindBy(how = How.XPATH, using = "//input[@id='quantity_wanted']")
 	WebElement quantityWanted;
@@ -71,9 +75,9 @@ public class ProductPage extends BasePage {
 		double dblModifiedTotal = convertStringToDouble(totalProductPrice);
 		
 		if (dblCurrentTotal + dblProductPrc == dblModifiedTotal) {
-			System.out.println("Success! the calculation is correct");
+			logger.info("Success! the calculation is correct");
 		} else {
-			System.out.println("Failure, the calculation is wrong");
+			logger.info("Failure, the calculation is wrong");
 		}
 	}
 
